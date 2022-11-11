@@ -1,0 +1,213 @@
+:root {
+  --background-color: rgb(6, 11, 25);
+  --border-color: rgb(255, 255, 255, 0.1);
+}
+
+body { 
+  background-color: var(--background-color);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0px;
+  overflow: hidden;
+}
+
+nav {
+  display: flex;
+  width: 100%;
+  border-bottom: 1px solid var(--border-color);
+}
+
+nav > .nav-section {
+  padding: 3rem 2rem;
+  display: flex;
+  gap: 1rem;
+  border-left: 1px solid var(--border-color);
+  align-items: center;
+  justify-content: center;
+}
+
+#nav-logo-section > a > i {
+  font-size: 2.5rem
+}
+
+#nav-link-section {
+  gap: 6rem;
+}
+
+#nav-social-section {
+  gap: 3rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#nav-logo-section,
+#nav-link-section {
+  flex-basis: calc(100%/3);
+}
+
+#nav-social-section,
+#nav-contact-section {
+  flex-grow: 1;
+}
+
+h1, h2, h3, a, p, span {
+  font-family: "Rubik", sans-serif;
+  font-weight: 400;
+  color: white;
+}
+
+a{
+  text-decoration: none;
+}
+
+main {
+  flex-grow: 1;
+  position: relative;
+}
+
+main > article {
+  display: grid;
+  height: 100%;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 2fr 1fr;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  transition: transform 400ms ease; /*For the smooth animation*/
+}
+
+/*These code blocks below are for navigation*/
+
+main > article[data-status = "inactive"] {
+  transform: translateX(-100%); /*This is to hide the slides to the left 100%*/
+}
+
+main > article[data-status="active"] {
+  transform: translateX(0%);
+}
+
+main > article[data-status="before"] {
+  transform: translateX(-100%);
+}
+
+main > article[data-status="after"] {
+  transform: translateX(100%);
+}
+
+main > article[data-status="becoming-active-from-before"] {
+  transform: translateX(-100%);
+  transition: none;
+}
+
+main > article[data-status="becoming-active-from-after"] {
+  transform: translateX(100%);
+  transition: none;
+}
+
+main > article > .article-section {
+  height: 100%;
+  display: flex;
+}
+
+main > article > .article-section {
+  height: 100%;
+}
+
+main > article > .article-description-section,
+main > article > .article-nav-section {
+  border-left: 1px solid var(--border-color);
+}
+
+main > article > .article-title-section,
+main > article > .article-nav-section {
+  border-top: 1px solid var(--border-color);
+}
+
+main > article > .article-description-section {
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 4rem; 
+}
+
+main > article > .article-description-section > p {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 1.25em;
+}
+
+main > article > .article-description-section > p  > a:hover {
+  text-decoration: underline;
+}
+
+main > article > .article-title-section {
+  align-items: center; 
+  justify-content: space-between;
+  padding: 2rem 4rem;
+}
+
+main > article > .article-title-section * {
+  color: white;
+}
+
+main > article > .article-title-section > h2 {
+  flex-basis: 50%;
+  font-family: "Montserrat", sans-serif;
+  font-size: 3.5rem;
+  line-height: 3rem;
+  margin: 0px;
+  text-transform: uppercase;
+}
+
+main > article > .article-title-section > i {
+  color: rgba(255, 255, 255, 1);
+  font-size:  4rem;
+}
+
+main > article > .article-nav-section > .article-nav-button {
+  background-color: transparent;
+  flex-grow: 1;
+  border: none;
+  outline: none;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 3rem;
+  cursor: pointer;
+}
+
+
+
+main > article > .article-nav-section > .article-nav-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+main > article > .article-nav-section > .article-nav-button:nth-child(2) {
+  border-left: 1px solid var(--border-color);
+}
+
+main > article > .article-image-section {
+  background-position: center;
+  background-size: contain;
+}
+
+main > article:first-child > .article-image-section {
+  background-image: url("https://www.collegesearch.in/upload/institute/images/large/140715101800_465831_368855303220269_1247157632_o.jpg");
+}
+
+main > article:nth-child(2) > .article-image-section {
+  background-image: url("https://raw.githubusercontent.com/phukon/assets_jist/main/18556851_1135621386543653_1080340366521194387_o.jpg");
+}
+
+main > article:nth-child(3) > .article-image-section {
+  background-image: url("https://raw.githubusercontent.com/phukon/assets_jist/main/315113042_1920243318179816_7208779143057299019_n.webp");
+}
+
+main > article:nth-child(4) > .article-image-section {
+  background-image: url("https://raw.githubusercontent.com/phukon/assets_jist/main/Jorbim_Boys_Hostel_1_during_diwali.jpg");
+}
+
+/*#nav-logo-section {
+    background-image: url("https://www.collegesearch.in/upload/institute/images/large/140715101800_465831_368855303220269_1247157632_o.jpg");
+    background-position: center;
+    background-size: cover;
+}*/
